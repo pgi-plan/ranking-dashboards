@@ -948,7 +948,7 @@
         name: 'Nº de Universidades  ',
         marker: {
           color: colors.lightBlue,
-          opacity: 0.6,
+          opacity: 0.4,
           line: {
             color: colors.blue,
             width: 1
@@ -1001,7 +1001,7 @@
         }
       };
 
-      Plotly.newPlot('latam-position-chart', [latamPositionTrace, totalParticipantsTrace], latamPositionLayout, chartConfig);
+      Plotly.newPlot('latam-position-chart', [totalParticipantsTrace, latamPositionTrace], latamPositionLayout, chartConfig);
 
       // 5. Gráfico QS Latin America - Posição no Brasil COM PARTICIPANTES BRASILEIROS
       // Traço da linha (posição no Brasil)
@@ -1050,7 +1050,7 @@
         name: 'Universidades Brasileiras  ',
         marker: {
           color: colors.lightGreen,
-          opacity: 0.6,
+          opacity: 0.4,
           line: {
             color: colors.green,
             width: 1
@@ -1106,7 +1106,7 @@
         }
       };
 
-      Plotly.newPlot('latam-brazil-chart', [latamBrazilTrace, brazilParticipantsTrace], latamBrazilLayout, chartConfig);
+      Plotly.newPlot('latam-brazil-chart', [brazilParticipantsTrace, latamBrazilTrace], latamBrazilLayout, chartConfig);
 
       // 6. Gráficos de indicadores
       createWorldIndicatorsChart('main');
