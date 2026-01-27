@@ -610,8 +610,8 @@
       </p>
       <p class="mb-0">
         <i class="fa-solid fa-arrow-trend-up me-1"></i>
-      <a href="https://www.uff.br/proplan/uff-em-numeros/" target="_blank" style="text-decoration: none;">Desenvolvido
-        pela PGI/PLAN - UFF</a>
+        <a href="https://www.uff.br/proplan/uff-em-numeros/" target="_blank" style="text-decoration: none;">Desenvolvido
+          pela PGI/PLAN - UFF</a>
       </p>
     </div>
   </div>
@@ -812,7 +812,7 @@
           }
         },
         text: data.brazilPosition.map(v => v.toString() + 'º'),
-        textposition: 'bottom left',
+        textposition: 'bottom right',
         textfont: {
           size: 11,
           color: colors.blue,
@@ -887,7 +887,7 @@
         }
       };
 
-      Plotly.newPlot('brazil-position-chart', [positionLineTrace, participantsBarTrace, ], participantsLayout, chartConfig);
+      Plotly.newPlot('brazil-position-chart', [positionLineTrace, participantsBarTrace], participantsLayout, chartConfig);
     }
 
     // 2. Gráfico Posição entre as Federais
@@ -966,14 +966,14 @@
       }, chartConfig);
     }
 
-    // 4. Gráfico Comparativo de Pontuações
+    // 4. Gráfico Comparativo de Pontuações (SEM annotation labels)
     function createScoreComparisonChart() {
       const scoreComparisonTraces = [
-        createTrace(data.years, data.ensinoScore, 'Ensino', colors.blue, 3, '', true, 'solid', 'top center'),
-        createTrace(data.years, data.pesquisaScore, 'Pesquisa', colors.green, 3, '', true, 'solid', 'top center'),
-        createTrace(data.years, data.mercadoScore, 'Mercado', colors.orange, 3, '', true, 'solid', 'top center'),
-        createTrace(data.years, data.inovacaoScore, 'Inovação', colors.purple, 2.5, '', true, 'dash', 'top center'),
-        createTrace(data.years, data.internacionalizacaoScore, 'Internacionalização', colors.red, 2.5, '', true, 'dot', 'top center')
+        createTrace(data.years, data.ensinoScore, 'Ensino', colors.blue, 3, '', false, 'solid'),
+        createTrace(data.years, data.pesquisaScore, 'Pesquisa', colors.green, 3, '', false, 'solid'),
+        createTrace(data.years, data.mercadoScore, 'Mercado', colors.orange, 3, '', false, 'solid'),
+        createTrace(data.years, data.inovacaoScore, 'Inovação', colors.purple, 2.5, '', false, 'dash'),
+        createTrace(data.years, data.internacionalizacaoScore, 'Internacionalização', colors.red, 2.5, '', false, 'dot')
       ];
 
       Plotly.newPlot('score-comparison-chart', scoreComparisonTraces, {
@@ -1035,7 +1035,7 @@
         yaxis: 'y2'
       };
 
-      const allTraces = [...lineTraces, participantsBarTrace,];
+      const allTraces = [...lineTraces, participantsBarTrace];
 
       // Layout para gráfico combinado
       const classificationLayout = {
@@ -1136,7 +1136,7 @@
       };
 
       if (showText) {
-        trace.mode = 'lines+markers';
+        trace.mode = 'lines+markers+text';
         trace.text = y.map(v => formatValue(v) + suffix);
         trace.textposition = textPosition || 'top center';
         trace.textfont = {
@@ -1149,35 +1149,69 @@
       return trace;
     }
 
-    // Funções para trocar abas
+    // Funções para trocar abas - CORRIGIDAS
     function changeClassificationTab(tab) {
-      const tabBtns = document.querySelectorAll('#classification-chart').closest('.chart-container').querySelectorAll('.tab-btn');
+      const chartContainer = document.getElementById('classification-chart').closest('.chart-container');
+      const tabBtns = chartContainer.querySelectorAll('.tab-btn');
+
+      // Remover classe active de todos os botões
       tabBtns.forEach(btn => btn.classList.remove('active'));
 
-      // Ativar o botão correto
+      // Encontrar e ativar o botão correto
+      let found = false;
       tabBtns.forEach(btn => {
-        if ((tab === 'ensino-mercado' && btn.textContent.includes('Ensino e Mercado')) ||
-          (tab === 'pesquisa-inovacao' && btn.textContent.includes('Pesquisa & Inovação')) ||
-          (tab === 'internacionalizacao' && btn.textContent.includes('Internacionalização'))) {
-          btn.classList.add('active');
+        const btnText = btn.textContent.trim().toLowerCase();
+        if (!found) {
+          if (tab === 'ensino-mercado' && btnText.includes('ensino')) {
+            btn.classList.add('active');
+            found = true;
+          } else if (tab === 'pesquisa-inovacao' && btnText.includes('pesquisa')) {
+            btn.classList.add('active');
+            found = true;
+          } else if (tab === 'internacionalizacao' && btnText.includes('internacionalização')) {
+            btn.classList.add('active');
+            found = true;
+          }
         }
       });
+
+      // Se não encontrou, ativar o primeiro
+      if (!found && tabBtns.length > 0) {
+        tabBtns[0].classList.add('active');
+      }
 
       createClassificationChart(tab);
     }
 
     function changeScoreTab(tab) {
-      const tabBtns = document.querySelectorAll('#score-chart').closest('.chart-container').querySelectorAll('.tab-btn');
+      const chartContainer = document.getElementById('score-chart').closest('.chart-container');
+      const tabBtns = chartContainer.querySelectorAll('.tab-btn');
+
+      // Remover classe active de todos os botões
       tabBtns.forEach(btn => btn.classList.remove('active'));
 
-      // Ativar o botão correto
+      // Encontrar e ativar o botão correto
+      let found = false;
       tabBtns.forEach(btn => {
-        if ((tab === 'main' && btn.textContent.includes('Principais')) ||
-          (tab === 'research' && btn.textContent.includes('Pesquisa & Inovação')) ||
-          (tab === 'international' && btn.textContent.includes('Internacionalização'))) {
-          btn.classList.add('active');
+        const btnText = btn.textContent.trim().toLowerCase();
+        if (!found) {
+          if (tab === 'main' && btnText.includes('principais')) {
+            btn.classList.add('active');
+            found = true;
+          } else if (tab === 'research' && btnText.includes('pesquisa')) {
+            btn.classList.add('active');
+            found = true;
+          } else if (tab === 'international' && btnText.includes('internacionalização')) {
+            btn.classList.add('active');
+            found = true;
+          }
         }
       });
+
+      // Se não encontrou, ativar o primeiro
+      if (!found && tabBtns.length > 0) {
+        tabBtns[0].classList.add('active');
+      }
 
       createScoreChart(tab);
     }
