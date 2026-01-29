@@ -923,7 +923,7 @@
           }
         },
         text: data.latamPosition.map(v => v.toString()),
-        textposition: 'top center',
+        textposition: 'bottom center',
         textfont: {
           size: 10,
           color: colors.purple,
@@ -938,7 +938,7 @@
         x: data.participantsYears,
         y: data.totalParticipants,
         text: data.totalParticipants.map(v => v.toString()),
-        textposition: 'bottom center',
+        textposition: 'outside',
           textfont: {
           size: 10,
           color: colors.blue,
@@ -1040,7 +1040,7 @@
         x: data.participantsYears,
         y: data.brazilParticipants,
         text: data.brazilParticipants.map(v => v.toString()),
-        textposition: 'middle center',
+        textposition: 'outside',
         textfont: {
           size: 10,
           color: colors.green,
@@ -1123,7 +1123,7 @@
         traces = [
           createTrace(years, data.worldAcademicRep, 'Reputação Acadêmica', colors.blue, 4),
           createTrace(years, data.worldEmployerRep, 'Reputação Empregadores', colors.orange, 4),
-          createTrace(years, data.worldFacultyStudentRatio, 'Razão Professor/Aluno', colors.green, 4),
+          //createTrace(years, data.worldFacultyStudentRatio, 'Razão Professor/Aluno', colors.green, 4),
           createTrace(years, data.worldSustainability, 'Sustentabilidade', colors.cyan, 4)
         ];
       } else if (tab === 'academic') {
@@ -1161,7 +1161,7 @@
           createTrace(years, data.latamOverall, 'Pontuação Geral', colors.purple, 4),
           createTrace(years, data.latamAcademicRep, 'Reputação Acadêmica', colors.blue, 4),
           createTrace(years, data.latamEmployerRep, 'Reputação Empregadores', colors.orange, 4),
-          createTrace(years, data.latamFacultyStudentRatio, 'Razão Professor/Aluno', colors.green, 4)
+          //createTrace(years, data.latamFacultyStudentRatio, 'Razão Professor/Aluno', colors.green, 4)
         ];
       } else if (tab === 'academic') {
         // Indicadores acadêmicos
@@ -1177,7 +1177,7 @@
           createTrace(years, data.latamPapersPerFaculty, 'Artigos por Professor', colors.pink, 3),
           createTrace(years, data.latamCitationsPerPaper, 'Citações por Artigo', colors.red, 3),
           createTrace(years, data.latamResearchNetwork, 'Rede de Pesquisa', colors.indigo, 3),
-          createTrace(years, data.latamWebImpact, 'Impacto Web', colors.yellow, 3)
+          //createTrace(years, data.latamWebImpact, 'Impacto Web', colors.yellow, 3)
         ];
       }
 
