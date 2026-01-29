@@ -684,7 +684,7 @@
     // Função para formatar valores
     function formatValue(val) {
       if (val === null || val === undefined) return '';
-      return Number.isInteger(val) ? val.toString() : val.toFixed(1);
+      return Number.isInteger(val) ? val.toString() : val.toFixed(2);
     }
 
     // Layout comum
@@ -765,7 +765,7 @@
       yaxis: {
         ...commonLayout.yaxis,
         title: 'Pontuação',
-        tickformat: '.1f',
+        tickformat: '.2f',
         nticks: 6
       }
     };
@@ -812,7 +812,7 @@
           }
         },
         text: data.brazilPosition.map(v => v.toString() + 'º'),
-        textposition: 'bottom right',
+        textposition: 'top center',
         textfont: {
           size: 11,
           color: colors.blue,
@@ -828,7 +828,7 @@
         x: data.years,
         y: data.participants,
         text: data.participants.map(v => v.toString()),
-        textposition: 'outside',
+        textposition: 'inside',
         textfont: {
           size: 10,
           color: colors.gray,
@@ -949,7 +949,7 @@
             width: 2
           }
         },
-        text: data.overallScore.map(v => v.toFixed(1)),
+        text: data.overallScore.map(v => v.toFixed(2)),
         textposition: 'top center',
         textfont: {
           size: 11,
