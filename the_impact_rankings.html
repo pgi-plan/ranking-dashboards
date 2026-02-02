@@ -532,7 +532,7 @@
       <div class="row align-items-center">
         <div class="col-lg-8">
           <h1>A UFF no THE Impact Rankings</h1>
-          <p class="mt-2">Desempenho da UFF nos Objetivos de Desenvolvimento Sustentável
+          <p class="mt-2">Desempenho nos Objetivos de Desenvolvimento Sustentável
             (ODS)</p>
         </div>
       </div>
@@ -543,7 +543,7 @@
       <div class="col-12 mb-3">
         <div class="section-header world-section">
           <h2 class="section-title">
-            <i class="fas fa-trophy section-icon world-icon"></i>THE Impact Rankings - Desempenho Geral
+            <i class="fas fa-trophy section-icon world-icon"></i>Desempenho Geral
           </h2>
         </div>
       </div>
@@ -610,7 +610,7 @@
       <!-- Posição no Brasil COM PARTICIPANTES -->
       <div class="col-lg-6 mb-3">
         <div class="chart-container">
-          <h4 class="chart-title">Posição no Brasil e Participantes Brasileiras (2020-2025)</h4>
+          <h4 class="chart-title">Posição no Brasil e Participantes Brasileiras</h4>
           <div id="brazil-position-chart"></div>
         </div>
       </div>
@@ -618,7 +618,7 @@
       <!-- Posição no Mundo COM PARTICIPANTES MUNDIAIS -->
       <div class="col-lg-6 mb-3">
         <div class="chart-container">
-          <h4 class="chart-title">Posição no Mundo e Universidades Participantes (2020-2025)</h4>
+          <h4 class="chart-title">Posição no Mundo e Universidades Participantes</h4>
           <div id="world-position-chart"></div>
         </div>
       </div>
@@ -626,7 +626,7 @@
       <!-- Posição entre Federais -->
       <div class="col-lg-6 mb-3">
         <div class="chart-container">
-          <h4 class="chart-title">Posição entre as Federais (2020-2025)</h4>
+          <h4 class="chart-title">Posição entre as Federais</h4>
           <div id="federais-position-chart"></div>
         </div>
       </div>
@@ -634,7 +634,7 @@
       <!-- Pontuação Geral -->
       <div class="col-lg-6 mb-3">
         <div class="chart-container">
-          <h4 class="chart-title">Pontuação Geral (2020-2025)</h4>
+          <h4 class="chart-title">Pontuação Geral</h4>
           <div id="overall-score-chart"></div>
         </div>
       </div>
@@ -645,8 +645,7 @@
       <div class="col-12 mb-3">
         <div class="section-header ods-section">
           <h2 class="section-title">
-            <i class="fas fa-globe-americas section-icon ods-icon"></i>Desempenho por Objetivo de Desenvolvimento
-            Sustentável (ODS)
+            <i class="fas fa-globe-americas section-icon ods-icon"></i>Desempenho por ODS
           </h2>
         </div>
       </div>
@@ -879,7 +878,7 @@
       <!-- Posição Nacional por ODS -->
       <div class="col-lg-6 mb-3">
         <div class="chart-container">
-          <h4 class="chart-title">Posição Nacional por ODS (2020-2025)</h4>
+          <h4 class="chart-title">Posição Nacional por ODS</h4>
           <div class="chart-tabs mb-3">
             <button class="tab-btn ods-tab active"
               onclick="changeOdsChart('national-position', 'group1', 'national-ods-chart')">ODS 1-3 (Pobreza, Fome,
@@ -910,7 +909,7 @@
       <!-- Posição Mundial por ODS -->
       <div class="col-lg-6 mb-3">
         <div class="chart-container">
-          <h4 class="chart-title">Posição Mundial por ODS (2020-2025)</h4>
+          <h4 class="chart-title">Posição Mundial por ODS</h4>
           <div class="chart-tabs mb-3">
             <button class="tab-btn ods-tab active"
               onclick="changeOdsChart('world-position', 'group1', 'world-ods-chart')">ODS 1-3 (Pobreza, Fome,
@@ -939,7 +938,7 @@
     <div class="row mb-5">
       <div class="col-12">
         <div class="chart-container">
-          <h4 class="chart-title">Pontuação Mundial por ODS (2020-2025)</h4>
+          <h4 class="chart-title">Pontuação Mundial por ODS</h4>
           <div class="chart-tabs mb-3">
             <button class="tab-btn ods-tab active" onclick="changeOdsChart('score', 'group1', 'score-ods-chart')">ODS
               1-3 (Pobreza, Fome, Saúde)</button>
@@ -1085,7 +1084,7 @@
       // Labels ODS completas para legenda
       odsLabels: {
         ods1: 'ODS 1: Erradicação da pobreza',
-        ods2: 'ODS 2: Fome zero e agricultura sustentável',
+        ods2: 'ODS 2: Fome zero e agricultura sustentável  ',
         ods3: 'ODS 3: Saúde e bem-estar',
         ods4: 'ODS 4: Educação de qualidade',
         ods5: 'ODS 5: Igualdade de gênero',
@@ -1149,7 +1148,7 @@
     // Configurações do gráfico
     const chartConfig = {
       responsive: true,
-      displayModeBar: true,
+      displayModeBar: false,
       displaylogo: false,
       modeBarButtonsToRemove: ['lasso2d', 'select2d'],
       toImageButtonOptions: {
@@ -1182,6 +1181,7 @@
         borderwidth: 1
       },
       xaxis: {
+        fixedrange: true,
         gridcolor: 'rgba(0,0,0,0.03)',
         showgrid: true,
         showline: true,
@@ -1203,6 +1203,7 @@
         }
       },
       yaxis: {
+        fixedrange: true,
         gridcolor: 'rgba(0,0,0,0.03)',
         showgrid: true,
         showline: true,
@@ -1230,7 +1231,7 @@
         y: data.brazilPosition,
         type: 'scatter',
         mode: 'lines+markers+text',
-        name: 'Posição da UFF',
+        name: 'Posição da UFF  ',
         line: {
           color: colors.blue,
           width: 4,
@@ -1261,7 +1262,7 @@
         x: data.years,
         y: data.brazilParticipants,
         type: 'bar',
-        name: 'Universidades Brasileiras',
+        name: 'Universidades Brasileiras  ',
         text: data.brazilParticipants.map(v => v.toString()),
         textposition: 'outside',
         textfont: {
@@ -1341,7 +1342,7 @@
         y: data.worldPosition,
         type: 'scatter',
         mode: 'lines+markers+text',
-        name: 'Posição Mundial',
+        name: 'Posição Mundial  ',
         line: {
           color: colors.orange,
           width: 4,
@@ -1372,7 +1373,7 @@
         x: data.years,
         y: data.worldParticipants,
         type: 'bar',
-        name: 'Total de Universidades',
+        name: 'Total de Universidades  ',
         text: data.worldParticipants.map(v => v.toString()),
         textposition: 'outside',
         textfont: {
@@ -1451,7 +1452,7 @@
         y: data.federaisPosition,
         type: 'scatter',
         mode: 'lines+markers+text',
-        name: 'Entre as Federais',
+        name: 'Entre as Federais  ',
         line: {
           color: colors.orange,
           width: 4,
@@ -1500,7 +1501,7 @@
         y: data.overallScore,
         type: 'scatter',
         mode: 'lines+markers+text',
-        name: 'Pontuação Geral',
+        name: 'Pontuação Geral  ',
         line: {
           color: colors.blue,
           width: 4,
