@@ -873,61 +873,79 @@
       </div>
     </div>
 
-    <!-- Gráficos ODS lado a lado (sem barras de participantes) -->
+    <!-- Gráficos ODS - ALTERADO PARA 9 ABAS COM 2 ODS POR GRÁFICO -->
+    <!-- Posição Nacional por ODS -->
     <div class="row mb-5">
-      <!-- Posição Nacional por ODS -->
-      <div class="col-lg-6 mb-3">
+      <div class="col-12">
         <div class="chart-container">
           <h4 class="chart-title">Posição Nacional por ODS</h4>
           <div class="chart-tabs mb-3">
-            <button class="tab-btn ods-tab active"
-              onclick="changeOdsChart('national-position', 'group1', 'national-ods-chart')">ODS 1-3 (Pobreza, Fome,
-              Saúde)</button>
-            <button class="tab-btn ods-tab"
-              onclick="changeOdsChart('national-position', 'group2', 'national-ods-chart')">ODS 4-6 (Educação,
-              Igualdade,
-              Água)</button>
-            <button class="tab-btn ods-tab"
-              onclick="changeOdsChart('national-position', 'group3', 'national-ods-chart')">ODS 7-9 (Energia, Trabalho,
-              Indústria)</button>
-            <button class="tab-btn ods-tab"
-              onclick="changeOdsChart('national-position', 'group4', 'national-ods-chart')">ODS 10-12 (Igualdade,
-              Cidades,
-              Consumo)</button>
-            <button class="tab-btn ods-tab"
-              onclick="changeOdsChart('national-position', 'group5', 'national-ods-chart')">ODS 13-15 (Clima, Vida Água,
-              Vida
-              Terra)</button>
-            <button class="tab-btn ods-tab"
-              onclick="changeOdsChart('national-position', 'group6', 'national-ods-chart')">ODS 16-17 (Paz,
-              Parcerias)</button>
+            <button class="tab-btn ods-tab active" onclick="changeOdsChart('national-position', 'group1', 'national-ods-chart')">
+              ODS 1-2 (Pobreza, Fome)
+            </button>
+            <button class="tab-btn ods-tab" onclick="changeOdsChart('national-position', 'group2', 'national-ods-chart')">
+              ODS 3-4 (Saúde, Educação)
+            </button>
+            <button class="tab-btn ods-tab" onclick="changeOdsChart('national-position', 'group3', 'national-ods-chart')">
+              ODS 5-6 (Igualdade, Água)
+            </button>
+            <button class="tab-btn ods-tab" onclick="changeOdsChart('national-position', 'group4', 'national-ods-chart')">
+              ODS 7-8 (Energia, Trabalho)
+            </button>
+            <button class="tab-btn ods-tab" onclick="changeOdsChart('national-position', 'group5', 'national-ods-chart')">
+              ODS 9-10 (Indústria, Igualdade)
+            </button>
+            <button class="tab-btn ods-tab" onclick="changeOdsChart('national-position', 'group6', 'national-ods-chart')">
+              ODS 11-12 (Cidades, Consumo)
+            </button>
+            <button class="tab-btn ods-tab" onclick="changeOdsChart('national-position', 'group7', 'national-ods-chart')">
+              ODS 13-14 (Clima, Vida Água)
+            </button>
+            <button class="tab-btn ods-tab" onclick="changeOdsChart('national-position', 'group8', 'national-ods-chart')">
+              ODS 15-16 (Vida Terra, Paz)
+            </button>
+            <button class="tab-btn ods-tab" onclick="changeOdsChart('national-position', 'group9', 'national-ods-chart')">
+              ODS 17 (Parcerias)
+            </button>
           </div>
           <div id="national-ods-chart"></div>
         </div>
       </div>
+    </div>
 
-      <!-- Posição Mundial por ODS -->
-      <div class="col-lg-6 mb-3">
+    <!-- Posição Mundial por ODS -->
+    <div class="row mb-5">
+      <div class="col-12">
         <div class="chart-container">
           <h4 class="chart-title">Posição Mundial por ODS</h4>
           <div class="chart-tabs mb-3">
-            <button class="tab-btn ods-tab active"
-              onclick="changeOdsChart('world-position', 'group1', 'world-ods-chart')">ODS 1-3 (Pobreza, Fome,
-              Saúde)</button>
-            <button class="tab-btn ods-tab" onclick="changeOdsChart('world-position', 'group2', 'world-ods-chart')">ODS
-              4-6 (Educação, Igualdade, Água)</button>
-            <button class="tab-btn ods-tab" onclick="changeOdsChart('world-position', 'group3', 'world-ods-chart')">ODS
-              7-9 (Energia, Trabalho,
-              Indústria)</button>
-            <button class="tab-btn ods-tab" onclick="changeOdsChart('world-position', 'group4', 'world-ods-chart')">ODS
-              10-12 (Igualdade, Cidades,
-              Consumo)</button>
-            <button class="tab-btn ods-tab" onclick="changeOdsChart('world-position', 'group5', 'world-ods-chart')">ODS
-              13-15 (Clima, Vida Água, Vida
-              Terra)</button>
-            <button class="tab-btn ods-tab" onclick="changeOdsChart('world-position', 'group6', 'world-ods-chart')">ODS
-              16-17 (Paz,
-              Parcerias)</button>
+            <button class="tab-btn ods-tab active" onclick="changeOdsChart('world-position', 'group1', 'world-ods-chart')">
+              ODS 1-2 (Pobreza, Fome)
+            </button>
+            <button class="tab-btn ods-tab" onclick="changeOdsChart('world-position', 'group2', 'world-ods-chart')">
+              ODS 3-4 (Saúde, Educação)
+            </button>
+            <button class="tab-btn ods-tab" onclick="changeOdsChart('world-position', 'group3', 'world-ods-chart')">
+              ODS 5-6 (Igualdade, Água)
+            </button>
+            <button class="tab-btn ods-tab" onclick="changeOdsChart('world-position', 'group4', 'world-ods-chart')">
+              ODS 7-8 (Energia, Trabalho)
+            </button>
+            <button class="tab-btn ods-tab" onclick="changeOdsChart('world-position', 'group5', 'world-ods-chart')">
+              ODS 9-10 (Indústria, Igualdade)
+            </button>
+            <button class="tab-btn ods-tab" onclick="changeOdsChart('world-position', 'group6', 'world-ods-chart')">
+              ODS 11-12 (Cidades, Consumo)
+            </button>
+            <button class="tab-btn ods-tab" onclick="changeOdsChart('world-position', 'group7', 'world-ods-chart')">
+              ODS 13-14 (Clima, Vida Água)
+            </button>
+            <button class="tab-btn ods-tab" onclick="changeOdsChart('world-position', 'group8', 'world-ods-chart')">
+              ODS 15-16 (Vida Terra, Paz)
+            </button>
+            <button class="tab-btn ods-tab" onclick="changeOdsChart('world-position', 'group9', 'world-ods-chart')">
+              ODS 17 (Parcerias)
+            </button>
           </div>
           <div id="world-ods-chart"></div>
         </div>
@@ -940,23 +958,33 @@
         <div class="chart-container">
           <h4 class="chart-title">Pontuação Mundial por ODS</h4>
           <div class="chart-tabs mb-3">
-            <button class="tab-btn ods-tab active" onclick="changeOdsChart('score', 'group1', 'score-ods-chart')">ODS
-              1-3 (Pobreza, Fome, Saúde)</button>
-            <button class="tab-btn ods-tab" onclick="changeOdsChart('score', 'group2', 'score-ods-chart')">ODS 4-6
-              (Educação,
-              Igualdade, Água)</button>
-            <button class="tab-btn ods-tab" onclick="changeOdsChart('score', 'group3', 'score-ods-chart')">ODS 7-9
-              (Energia,
-              Trabalho, Indústria)</button>
-            <button class="tab-btn ods-tab" onclick="changeOdsChart('score', 'group4', 'score-ods-chart')">ODS 10-12
-              (Igualdade,
-              Cidades, Consumo)</button>
-            <button class="tab-btn ods-tab" onclick="changeOdsChart('score', 'group5', 'score-ods-chart')">ODS 13-15
-              (Clima, Vida
-              Água, Vida Terra)</button>
-            <button class="tab-btn ods-tab" onclick="changeOdsChart('score', 'group6', 'score-ods-chart')">ODS 16-17
-              (Paz,
-              Parcerias)</button>
+            <button class="tab-btn ods-tab active" onclick="changeOdsChart('score', 'group1', 'score-ods-chart')">
+              ODS 1-2 (Pobreza, Fome)
+            </button>
+            <button class="tab-btn ods-tab" onclick="changeOdsChart('score', 'group2', 'score-ods-chart')">
+              ODS 3-4 (Saúde, Educação)
+            </button>
+            <button class="tab-btn ods-tab" onclick="changeOdsChart('score', 'group3', 'score-ods-chart')">
+              ODS 5-6 (Igualdade, Água)
+            </button>
+            <button class="tab-btn ods-tab" onclick="changeOdsChart('score', 'group4', 'score-ods-chart')">
+              ODS 7-8 (Energia, Trabalho)
+            </button>
+            <button class="tab-btn ods-tab" onclick="changeOdsChart('score', 'group5', 'score-ods-chart')">
+              ODS 9-10 (Indústria, Igualdade)
+            </button>
+            <button class="tab-btn ods-tab" onclick="changeOdsChart('score', 'group6', 'score-ods-chart')">
+              ODS 11-12 (Cidades, Consumo)
+            </button>
+            <button class="tab-btn ods-tab" onclick="changeOdsChart('score', 'group7', 'score-ods-chart')">
+              ODS 13-14 (Clima, Vida Água)
+            </button>
+            <button class="tab-btn ods-tab" onclick="changeOdsChart('score', 'group8', 'score-ods-chart')">
+              ODS 15-16 (Vida Terra, Paz)
+            </button>
+            <button class="tab-btn ods-tab" onclick="changeOdsChart('score', 'group9', 'score-ods-chart')">
+              ODS 17 (Parcerias)
+            </button>
           </div>
           <div id="score-ods-chart"></div>
         </div>
@@ -1071,14 +1099,17 @@
         1100: "1001+"
       },
 
-      // Grupos de ODS (3 por aba)
+      // ALTERADO: Grupos de ODS (9 grupos: 8 com 2 ODS, 1 com 1 ODS)
       odsGroups: {
-        group1: ['ods1', 'ods2', 'ods3'],
-        group2: ['ods4', 'ods5', 'ods6'],
-        group3: ['ods7', 'ods8', 'ods9'],
-        group4: ['ods10', 'ods11', 'ods12'],
-        group5: ['ods13', 'ods14', 'ods15'],
-        group6: ['ods16', 'ods17']
+        group1: ['ods1', 'ods2'],     // ODS 1-2
+        group2: ['ods3', 'ods4'],     // ODS 3-4
+        group3: ['ods5', 'ods6'],     // ODS 5-6
+        group4: ['ods7', 'ods8'],     // ODS 7-8
+        group5: ['ods9', 'ods10'],    // ODS 9-10
+        group6: ['ods11', 'ods12'],   // ODS 11-12
+        group7: ['ods13', 'ods14'],   // ODS 13-14
+        group8: ['ods15', 'ods16'],   // ODS 15-16
+        group9: ['ods17']             // ODS 17 (apenas 1)
       },
 
       // Labels ODS completas para legenda
@@ -1549,7 +1580,7 @@
         annotations: []
       }, chartConfig);
 
-      // 5. Inicializar gráficos ODS
+      // 5. Inicializar gráficos ODS com os novos grupos
       changeOdsChart('national-position', 'group1', 'national-ods-chart');
       changeOdsChart('world-position', 'group1', 'world-ods-chart');
       changeOdsChart('score', 'group1', 'score-ods-chart');
@@ -1563,7 +1594,7 @@
       let yAxisTitle = '';
       let layoutOptions = {};
 
-      // Cores para os ODS (3 cores diferentes)
+      // Cores para os ODS (2 cores diferentes para 2 ODS)
       const colorsList = [colors.blue, colors.green, colors.orange];
 
       if (metric === 'national-position') {
@@ -1602,7 +1633,7 @@
         };
       }
 
-      // Criar traços para cada ODS (3 ODS por grupo)
+      // Criar traços para cada ODS (2 ODS por grupo, exceto último com 1)
       odsList.forEach((ods, index) => {
         let odsData;
         let label = data.odsLabels[ods];
