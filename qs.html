@@ -448,7 +448,7 @@
     <div class="row mb-5">
       <div class="col-lg-6 p-3">
         <div class="chart-container">
-          <h4 class="chart-title">Posição da UFF no Brasil - QS World (2013-2026)</h4>
+          <h4 class="chart-title">Posição da UFF no Brasil - QS World</h4>
           <div id="world-brazil-chart"></div>
           <!-- <div class="chart-notes">
             <i class="fas fa-info-circle me-1"></i>
@@ -459,7 +459,7 @@
 
       <div class="col-lg-6 p-3">
         <div class="chart-container">
-          <h4 class="chart-title">Posição entre as Federais - QS World (2022-2026)</h4>
+          <h4 class="chart-title">Posição entre as Federais - QS World</h4>
           <div id="world-federais-chart"></div>
           <!-- <div class="chart-notes">
             <i class="fas fa-info-circle me-1"></i>
@@ -471,7 +471,7 @@
       <!-- Gráfico Posição na América Latina (QS World) -->
       <div class="col-lg-6">
         <div class="chart-container">
-          <h4 class="chart-title">Posição na América Latina - QS World (2022-2026)</h4>
+          <h4 class="chart-title">Posição na América Latina - QS World</h4>
           <div id="world-latam-chart"></div>
           <!-- <div class="chart-notes">
             <i class="fas fa-info-circle me-1"></i>
@@ -483,7 +483,7 @@
       <!-- Indicadores QS World -->
       <div class="col-lg-6">
         <div class="chart-container">
-          <h4 class="chart-title">Indicadores QS World (2021-2026)</h4>
+          <h4 class="chart-title">Indicadores QS World</h4>
           <div class="chart-tabs mb-3">
             <button class="tab-btn active" onclick="changeWorldIndicatorsTab('main')">Principais</button>
             <button class="tab-btn" onclick="changeWorldIndicatorsTab('academic')">Acadêmicos</button>
@@ -570,7 +570,7 @@
       <!-- Gráfico Posição na América Latina com Participantes -->
       <div class="col-lg-6">
         <div class="chart-container">
-          <h4 class="chart-title">Posição na América Latina (2013-2026) e Nº de Participantes</h4>
+          <h4 class="chart-title">Posição na América Latina e Nº de Participantes</h4>
           <div id="latam-position-chart"></div>
           <!-- <div class="chart-notes">
             <i class="fas fa-info-circle me-1"></i>
@@ -582,7 +582,7 @@
       <!-- Gráfico Posição no Brasil com Participantes Brasileiros -->
       <div class="col-lg-6">
         <div class="chart-container">
-          <h4 class="chart-title">Posição no Brasil (2018-2026) e Nº de Participantes Brasileiros</h4>
+          <h4 class="chart-title">Posição no Brasil e Nº de Participantes Brasileiros</h4>
           <div id="latam-brazil-chart"></div>
           <!-- <div class="chart-notes">
             <i class="fas fa-info-circle me-1"></i>
@@ -594,7 +594,7 @@
       <!-- Indicadores QS Latin America -->
       <div class="col-12 pt-3">
         <div class="chart-container">
-          <h4 class="chart-title">Indicadores QS Latin America (2021-2026)</h4>
+          <h4 class="chart-title">Indicadores QS Latin America</h4>
           <div class="chart-tabs mb-3">
             <button class="tab-btn latam-tab active" onclick="changeLatamIndicatorsTab('main')">Principais</button>
             <button class="tab-btn latam-tab" onclick="changeLatamIndicatorsTab('academic')">Acadêmicos</button>
@@ -821,7 +821,7 @@
         text: data.worldBrazilPosition.map(v => v.toString()),
         textposition: 'top center',
         textfont: {
-          size: 10,
+          size: 8,
           color: colors.blue,
           family: 'Inter, sans-serif'
         },
@@ -856,7 +856,7 @@
         text: data.worldFederaisPosition.map(v => v.toString()),
         textposition: 'top center',
         textfont: {
-          size: 10,
+          size: 8,
           color: colors.green,
           family: 'Inter, sans-serif'
         },
@@ -891,7 +891,7 @@
         text: data.worldLatamPosition.map(v => v.toString()),
         textposition: 'top center',
         textfont: {
-          size: 10,
+          size: 8,
           color: colors.red,
           family: 'Inter, sans-serif'
         },
@@ -927,7 +927,7 @@
         text: data.latamPosition.map(v => v.toString()),
         textposition: 'bottom center',
         textfont: {
-          size: 10,
+          size: 8,
           color: colors.purple,
           family: 'Inter, sans-serif'
         },
@@ -1030,7 +1030,7 @@
         text: data.latamBrazilPosition.map(v => v.toString()),
         textposition: 'bottom center',
         textfont: {
-          size: 10,
+          size: 8,
           color: colors.pink,
           family: 'Inter, sans-serif'
         },
@@ -1215,7 +1215,7 @@
         text: y.map(v => formatValue(v)),
         textposition: 'top center',
         textfont: {
-          size: 10,
+          size: 8,
           color: color,
           family: 'Inter, sans-serif'
         },
