@@ -544,14 +544,14 @@
     <div class="row mb-5">
       <div class="col-lg-6 p-3 mb-3">
         <div class="chart-container">
-          <h4 class="chart-title">Evolução das Posições da UFF no Brasil (2016-2025)</h4>
+          <h4 class="chart-title">Evolução das Posições da UFF no Brasil</h4>
           <div id="brasil-posicoes-chart"></div>
         </div>
       </div>
 
       <div class="col-lg-6 p-3 mb-3">
         <div class="chart-container">
-          <h4 class="chart-title">Proporção de Publicações Top 10% (2016-2025)</h4>
+          <h4 class="chart-title">Proporção de Publicações Top 10%</h4>
           <div id="brasil-proporcao-chart"></div>
           <div class="chart-notes">
             <i class="fas fa-info-circle me-1"></i>
@@ -632,7 +632,7 @@
     <div class="row mb-4">
       <div class="col-lg-6">
         <div class="chart-container">
-          <h4 class="chart-title">Evolução da Posição Mundial da UFF (2016-2025)</h4>
+          <h4 class="chart-title">Evolução da Posição Mundial da UFF</h4>
           <div id="mundo-posicao-chart"></div>
 
         </div>
@@ -640,7 +640,7 @@
 
       <div class="col-lg-6">
         <div class="chart-container">
-          <h4 class="chart-title">Indicadores de Impacto Mundial (2016-2025)</h4>
+          <h4 class="chart-title">Indicadores de Impacto Mundial</h4>
           <div id="mundo-indicadores-chart"></div>
           <div class="chart-notes">
             <i class="fas fa-info-circle me-1"></i>
@@ -880,7 +880,7 @@
         text: data.publicacoes.map(v => v.toString()),
         textposition: 'top center',
         textfont: {
-          size: 10,
+          size: 8,
           color: colors.blue,
           family: 'Inter, sans-serif'
         },
@@ -960,7 +960,7 @@
         text: data.publicacoesTop10.map(v => v.toString()),
         textposition: 'bottom center',
         textfont: {
-          size: 10,
+          size: 8,
           color: colors.red,
           family: 'Inter, sans-serif'
         },
@@ -1050,7 +1050,7 @@
         text: data.brasilP.map(v => v.toString()),
         textposition: 'top center',
         textfont: {
-          size: 10,
+          size: 8,
           color: colors.blue,
           family: 'Inter, sans-serif'
         },
@@ -1079,7 +1079,7 @@
         text: data.brasilPTop10.map(v => v.toString()),
         textposition: 'top center',
         textfont: {
-          size: 10,
+          size: 8,
           color: colors.green,
           family: 'Inter, sans-serif'
         },
@@ -1108,7 +1108,7 @@
         text: data.brasilPPTop10.map(v => v.toString()),
         textposition: 'top center',
         textfont: {
-          size: 10,
+          size: 8,
           color: colors.orange,
           family: 'Inter, sans-serif'
         },
@@ -1158,7 +1158,7 @@
         text: proporcaoPercentual.map(v => v.toFixed(1) + '%'),
         textposition: 'top center',
         textfont: {
-          size: 10,
+          size: 8,
           color: colors.orange,
           family: 'Inter, sans-serif'
         },
@@ -1210,7 +1210,7 @@
         text: data.mundoP.map(v => v.toString()),
         textposition: 'top center',
         textfont: {
-          size: 10,
+          size: 8,
           color: colors.green,
           family: 'Inter, sans-serif'
         },
@@ -1258,7 +1258,7 @@
         text: data.mundoPTop10.map(v => v.toString()),
         textposition: 'bottom center',
         textfont: {
-          size: 10,
+          size: 8,
           color: colors.teal,
           family: 'Inter, sans-serif'
         },
@@ -1287,7 +1287,7 @@
         text: data.mundoPPTop10.map(v => v.toString()),
         textposition: 'top center',
         textfont: {
-          size: 10,
+          size: 8,
           color: colors.cyan,
           family: 'Inter, sans-serif'
         },
