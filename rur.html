@@ -661,7 +661,7 @@
       names: ['World', 'Teaching', 'Research', 'International Diversity', 'Financial Sustainability'],
       brazilPositions: [7, 8, 8, 4, 9],
       worldPositions: [636, 445, 678, 748, 911],
-      scores: [52272, 59638, 47559, 45076, 31869]
+      scores: [52272, 59638, 47559, 45076, 31869],
     };
 
     // Cores
@@ -935,12 +935,15 @@
           autorange: 'reversed',
           title: 'Posição (menor = melhor)',
           tickformat: 'd',
-          range: [1000, 0] // Ajusta para dar espaço aos rótulos
+          range: [1000, 0]
         },
         xaxis: {
           ...commonLayout.xaxis,
           type: 'category',
-          tickangle: -15
+          tickangle: -45,
+          tickmode: 'array',
+          tickvals: rankings2025.names,
+          ticktext: ['World', 'Teaching', 'Research', 'Int. Diversity', 'Financial. Sust.'],
         },
         margin: {
           t: 60,
@@ -951,7 +954,6 @@
       };
 
       Plotly.newPlot('world-rankings-2025-chart', [traceBrazil2025, traceWorld2025], comparisonLayout, chartConfig);
-
       // 5. Gráficos de Indicadores (inicial com Teaching)
       createIndicatorBrazilChart('teaching');
       createIndicatorScoreChart('teaching');
