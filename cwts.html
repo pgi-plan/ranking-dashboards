@@ -361,20 +361,20 @@
             <div class="col-md-4">
               <div class="legend-item">
                 <span class="legend-badge" style="background-color: #3B82F6;"></span>
-                <strong>P:</strong> Posição baseada no número de publicações da universidade nos últimos 4 anos
+                <strong>P:</strong> Posição baseada no n° de publicações nos últimos 4 anos
               </div>
             </div>
             <div class="col-md-4">
               <div class="legend-item">
                 <span class="legend-badge" style="background-color: #10B981;"></span>
-                <strong>P Top 10%:</strong> Posição baseada no número de publicações da universidade que pertencem ao
+                <strong>P Top 10%:</strong> Posição baseada no n° de publicações que pertencem ao
                 top 10% na sua área
               </div>
             </div>
             <div class="col-md-4">
               <div class="legend-item">
                 <span class="legend-badge" style="background-color: #F59E0B;"></span>
-                <strong>PP Top 10%:</strong> Posição baseada na proporção de publicações da universidade que pertencem
+                <strong>PP Top 10%:</strong> Posição baseada na proporção de publicações que pertencem
                 ao top 10% na sua área
               </div>
             </div>
@@ -388,7 +388,7 @@
       <div class="col-12 mb-3">
         <div class="section-header numeros-section">
           <h2 class="section-title">
-            <i class="fas fa-chart-bar section-icon numeros-icon"></i>Números da UFF - Produção Científica
+            <i class="fas fa-chart-bar section-icon numeros-icon"></i>Números da UFF (mundo) - Produção Científica
           </h2>
         </div>
       </div>
@@ -504,7 +504,7 @@
             <div class="card-icon">
               <i class="fas fa-chart-line"></i>
             </div>
-            <h5 class="card-title">Posição Top 10% (P)</h5>
+            <h5 class="card-title">Posição Top 10% (P Top 10%)</h5>
             <div class="indicator-value">14º</div>
             <p class="card-subtitle">Baseado em 133 publicações top 10%</p>
           </div>
@@ -534,7 +534,7 @@
             </div>
             <h5 class="card-title">Melhor PP Top 10%</h5>
             <div class="indicator-value">6º</div>
-            <p class="card-subtitle">2017 & 2021 | Proporção 6.6%</p>
+            <p class="card-subtitle">2017 & 2021 | Proporção 6.6% em 2021</p>
           </div>
         </div>
       </div>
@@ -737,7 +737,7 @@
         family: 'Inter, sans-serif',
         color: '#1f2937'
       },
-      margin: { t: 30, r: 30, b: 70, l: 70 }, // Aumentei as margens para afastar títulos
+      margin: { t: 30, r: 30, b: 70, l: 70 },
       hovermode: 'closest',
       showlegend: true,
       legend: {
@@ -767,10 +767,10 @@
           text: 'Ano',
           font: {
             size: 12,
-            color: '#000000', // Preto
+            color: '#000000',
             weight: 'bold'
           },
-          standoff: 15 // Afasta o título do eixo
+          standoff: 15
         }
       },
       yaxis: {
@@ -787,10 +787,10 @@
         title: {
           font: {
             size: 12,
-            color: '#000000', // Preto
+            color: '#000000',
             weight: 'bold'
           },
-          standoff: 15 // Afasta o título do eixo
+          standoff: 15
         }
       }
     };
@@ -946,12 +946,12 @@
         name: 'Publicações Top 10%   ',
         line: {
           color: colors.red,
-          width: 4,
+          width: 3,
           shape: 'spline'
         },
         marker: {
           color: colors.red,
-          size: 10,
+          size: 7,
           line: {
             //color: 'white',
             //width: 2
