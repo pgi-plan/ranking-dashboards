@@ -200,15 +200,15 @@
     }
 
     .card-7 {
-      border-top-color: #06D6A0;
+      border-top-color: blue;
     }
 
     .card-7 .indicator-value {
-      color: #06D6A0;
+      color: blue;
     }
 
     .card-7 .card-icon {
-      color: #06D6A0;
+      color: blue;
     }
 
     .card-8 {
@@ -327,6 +327,13 @@
 
     .indicators-tab.active {
       color: #059669;
+    }
+
+    /* Bar Labels */
+    .bar-label {
+      font-size: 12px;
+      font-weight: 600;
+      fill: #1f2937;
     }
 
     /* Footer */
@@ -546,7 +553,7 @@
     <div class="row mb-4">
       <div class="col-12 pt-3 mb-3">
         <div class="chart-container">
-          <h4 class="chart-title">Indicadores RUR</h4>
+          <h4 class="chart-title">Indicadores RUR - Brasil</h4>
           <div class="chart-tabs mb-3">
             <button class="tab-btn indicators-tab active" onclick="changeIndicatorsTab('teaching')">Teaching</button>
             <button class="tab-btn indicators-tab" onclick="changeIndicatorsTab('research')">Research</button>
@@ -555,7 +562,52 @@
             <button class="tab-btn indicators-tab" onclick="changeIndicatorsTab('financial')">Financial
               Sustainability</button>
           </div>
-          <div id="indicators-chart"></div>
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="chart-container">
+                <h5 class="chart-title">Posição no Brasil</h5>
+                <div id="indicators-brazil-chart"></div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="chart-container">
+                <h5 class="chart-title">Pontuação</h5>
+                <div id="indicators-score-chart"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gráficos RUR Indicators - Mundo -->
+    <div class="row mb-4">
+      <div class="col-12 pt-3 mb-3">
+        <div class="chart-container">
+          <h4 class="chart-title">Indicadores RUR - Mundo</h4>
+          <div class="chart-tabs mb-3">
+            <button class="tab-btn indicators-tab active"
+              onclick="changeWorldIndicatorsTab('teaching')">Teaching</button>
+            <button class="tab-btn indicators-tab" onclick="changeWorldIndicatorsTab('research')">Research</button>
+            <button class="tab-btn indicators-tab" onclick="changeWorldIndicatorsTab('international')">International
+              Diversity</button>
+            <button class="tab-btn indicators-tab" onclick="changeWorldIndicatorsTab('financial')">Financial
+              Sustainability</button>
+          </div>
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="chart-container">
+                <h5 class="chart-title">Posição Mundial</h5>
+                <div id="indicators-world-chart"></div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="chart-container">
+                <h5 class="chart-title">Pontuação</h5>
+                <div id="indicators-world-score-chart"></div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -736,7 +788,7 @@
         y: worldBrazilPosition,
         type: 'scatter',
         mode: 'lines+markers+text',
-        name: 'Posição no Brasil',
+        name: 'Posição no Brasil   ',
         line: {
           color: colors.blue,
           width: 4,
@@ -750,10 +802,10 @@
             width: 2
           }
         },
-        text: worldBrazilPosition.map(v => v.toString() + 'º'),
+        text: worldBrazilPosition.map(v => v.toString() + ''),
         textposition: 'top center',
         textfont: {
-          size: 10,
+          size: 8,
           color: colors.blue,
           family: 'Inter, sans-serif'
         },
@@ -771,7 +823,7 @@
         y: worldWorldPosition,
         type: 'scatter',
         mode: 'lines+markers+text',
-        name: 'Posição Mundial',
+        name: 'Posição Mundial   ',
         line: {
           color: colors.green,
           width: 4,
@@ -785,10 +837,10 @@
             width: 2
           }
         },
-        text: worldWorldPosition.map(v => v.toString() + 'º'),
+        text: worldWorldPosition.map(v => v.toString() + ''),
         textposition: 'top center',
         textfont: {
-          size: 10,
+          size: 8,
           color: colors.green,
           family: 'Inter, sans-serif'
         },
@@ -806,7 +858,7 @@
         y: worldScore,
         type: 'scatter',
         mode: 'lines+markers+text',
-        name: 'Pontuação',
+        name: 'Pontuação' ,
         line: {
           color: colors.orange,
           width: 4,
@@ -820,10 +872,10 @@
             width: 2
           }
         },
-        text: worldScore.map(v => v.toLocaleString('pt-BR')),
+        text: worldScore.map(v => v),//v.toLocaleString('pt-BR')),
         textposition: 'top center',
         textfont: {
-          size: 10,
+          size: 8,
           color: colors.orange,
           family: 'Inter, sans-serif'
         },
@@ -835,7 +887,7 @@
         title: ''
       }, chartConfig);
 
-      // 4. Gráfico Comparação de Rankings 2025
+      // 4. Gráfico Comparação de Rankings 2025 - COM RÓTULOS VISÍVEIS
       const traceBrazil2025 = {
         x: rankings2025.names,
         y: rankings2025.brazilPositions,
@@ -847,6 +899,11 @@
         },
         text: rankings2025.brazilPositions.map(v => v.toString() + 'º'),
         textposition: 'outside',
+        textfont: {
+          size: 10,
+          weight: 'bold',
+          color: colors.blue
+        },
         hovertemplate: '<b>%{x}</b><br>Posição no Brasil: %{y}º<extra></extra>'
       };
 
@@ -854,13 +911,18 @@
         x: rankings2025.names,
         y: rankings2025.worldPositions,
         type: 'bar',
-        name: 'Posição Mundial',
+        name: 'Posição Mundial   ',
         marker: {
           color: colors.green,
           opacity: 0.8
         },
         text: rankings2025.worldPositions.map(v => v.toString() + 'º'),
         textposition: 'outside',
+        textfont: {
+          size: 10,
+          weight: 'bold',
+          color: colors.green
+        },
         hovertemplate: '<b>%{x}</b><br>Posição Mundial: %{y}º<extra></extra>'
       };
 
@@ -872,63 +934,64 @@
           ...commonLayout.yaxis,
           autorange: 'reversed',
           title: 'Posição (menor = melhor)',
-          tickformat: 'd'
+          tickformat: 'd',
+          range: [1000, 0] // Ajusta para dar espaço aos rótulos
         },
         xaxis: {
           ...commonLayout.xaxis,
           type: 'category',
           tickangle: -15
+        },
+        margin: {
+          t: 60,
+          r: 30,
+          b: 100,
+          l: 60
         }
       };
 
       Plotly.newPlot('world-rankings-2025-chart', [traceBrazil2025, traceWorld2025], comparisonLayout, chartConfig);
 
-      // 5. Gráfico de Indicadores (inicial com Teaching)
-      createIndicatorChart('teaching');
+      // 5. Gráficos de Indicadores (inicial com Teaching)
+      createIndicatorBrazilChart('teaching');
+      createIndicatorScoreChart('teaching');
+      createIndicatorWorldChart('teaching');
+      createIndicatorWorldScoreChart('teaching');
     }
 
-    // Função para criar gráfico de indicador
-    function createIndicatorChart(indicator) {
-      let brazilData, worldData, scoreData, indicatorName, color;
+    // Função para criar gráfico de indicador (Brasil - Posição)
+    function createIndicatorBrazilChart(indicator) {
+      let brazilData, indicatorName, color;
 
       switch (indicator) {
         case 'teaching':
           brazilData = teachingBrazil;
-          worldData = teachingWorld;
-          scoreData = teachingScore;
           indicatorName = 'Teaching';
           color = colors.purple;
           break;
         case 'research':
           brazilData = researchBrazil;
-          worldData = researchWorld;
-          scoreData = researchScore;
           indicatorName = 'Research';
           color = colors.pink;
           break;
         case 'international':
           brazilData = intdivBrazil;
-          worldData = intdivWorld;
-          scoreData = intdivScore;
           indicatorName = 'International Diversity';
-          color = colors.cyan;
+          color = colors.blue;
           break;
         case 'financial':
           brazilData = financialBrazil;
-          worldData = financialWorld;
-          scoreData = financialScore;
           indicatorName = 'Financial Sustainability';
           color = colors.teal;
           break;
       }
 
-      // Traço da posição no Brasil
       const brazilTrace = {
         x: years,
         y: brazilData,
         type: 'scatter',
-        mode: 'lines+markers',
-        name: 'Posição no Brasil',
+        mode: 'lines+markers+text',
+        name: 'Posição no Brasil   ',
         line: {
           color: color,
           width: 4,
@@ -942,98 +1005,218 @@
             width: 2
           }
         },
-        hovertemplate: '<b>Ano:</b> %{x}<br><b>Posição no Brasil:</b> %{y}º<extra></extra>',
-        yaxis: 'y1'
+        text: brazilData.map(v => v.toString() + 'º'),
+        textposition: 'top center',
+        textfont: {
+          size: 10,
+          color: color,
+          family: 'Inter, sans-serif'
+        },
+        hovertemplate: '<b>Ano:</b> %{x}<br><b>Posição no Brasil:</b> %{y}º<extra></extra>'
       };
 
-      // Traço da posição mundial
+      const layout = {
+        ...positionLayout,
+        title: indicatorName + ' - Posição no Brasil'
+      };
+
+      Plotly.newPlot('indicators-brazil-chart', [brazilTrace], layout, chartConfig);
+    }
+
+    // Função para criar gráfico de indicador (Brasil - Pontuação)
+    function createIndicatorScoreChart(indicator) {
+      let scoreData, indicatorName, color;
+
+      switch (indicator) {
+        case 'teaching':
+          scoreData = teachingScore;
+          indicatorName = 'Teaching';
+          color = colors.purple;
+          break;
+        case 'research':
+          scoreData = researchScore;
+          indicatorName = 'Research';
+          color = colors.pink;
+          break;
+        case 'international':
+          scoreData = intdivScore;
+          indicatorName = 'International Diversity';
+          color = colors.blue;
+          break;
+        case 'financial':
+          scoreData = financialScore;
+          indicatorName = 'Financial Sustainability';
+          color = colors.teal;
+          break;
+      }
+
+      const scoreTrace = {
+        x: years,
+        y: scoreData,
+        type: 'bar',
+        name: 'Pontuação   ',
+        marker: {
+          color: color,
+          opacity: 0.7
+        },
+        text: scoreData.map(v => v),//.toLocaleString('pt-BR')),
+        textposition: 'outside',
+        textfont: {
+          size: 10,
+          color: color,
+          family: 'Inter, sans-serif'
+        },
+        hovertemplate: '<b>Ano:</b> %{x}<br><b>Pontuação:</b> %{y:,.0f}<extra></extra>'
+      };
+
+      const layout = {
+        ...scoreLayout,
+        title: indicatorName + ' - Pontuação'
+      };
+
+      Plotly.newPlot('indicators-score-chart', [scoreTrace], layout, chartConfig);
+    }
+
+    // Função para criar gráfico de indicador (Mundo - Posição)
+    function createIndicatorWorldChart(indicator) {
+      let worldData, indicatorName, color;
+
+      switch (indicator) {
+        case 'teaching':
+          worldData = teachingWorld;
+          indicatorName = 'Teaching';
+          color = colors.purple;
+          break;
+        case 'research':
+          worldData = researchWorld;
+          indicatorName = 'Research';
+          color = colors.pink;
+          break;
+        case 'international':
+          worldData = intdivWorld;
+          indicatorName = 'International Diversity';
+          color = colors.blue;
+          break;
+        case 'financial':
+          worldData = financialWorld;
+          indicatorName = 'Financial Sustainability';
+          color = colors.teal;
+          break;
+      }
+
       const worldTrace = {
         x: years,
         y: worldData,
         type: 'scatter',
-        mode: 'lines+markers',
-        name: 'Posição Mundial',
+        mode: 'lines+markers+text',
+        name: 'Posição Mundial   ',
         line: {
-          color: colors.gray,
+          color: color,
           width: 4,
-          shape: 'spline',
-          dash: 'dash'
+          shape: 'spline'
         },
         marker: {
-          color: colors.gray,
+          color: color,
           size: 10,
           line: {
             color: 'white',
             width: 2
           }
         },
-        hovertemplate: '<b>Ano:</b> %{x}<br><b>Posição Mundial:</b> %{y}º<extra></extra>',
-        yaxis: 'y1'
+        text: worldData.map(v => v.toString() + 'º'),
+        textposition: 'top center',
+        textfont: {
+          size: 10,
+          color: color,
+          family: 'Inter, sans-serif'
+        },
+        hovertemplate: '<b>Ano:</b> %{x}<br><b>Posição Mundial:</b> %{y}º<extra></extra>'
       };
 
-      // Traço da pontuação
+      const layout = {
+        ...positionLayout,
+        title: indicatorName + ' - Posição Mundial'
+      };
+
+      Plotly.newPlot('indicators-world-chart', [worldTrace], layout, chartConfig);
+    }
+
+    // Função para criar gráfico de indicador (Mundo - Pontuação)
+    function createIndicatorWorldScoreChart(indicator) {
+      let scoreData, indicatorName, color;
+
+      switch (indicator) {
+        case 'teaching':
+          scoreData = teachingScore;
+          indicatorName = 'Teaching';
+          color = colors.purple;
+          break;
+        case 'research':
+          scoreData = researchScore;
+          indicatorName = 'Research';
+          color = colors.pink;
+          break;
+        case 'international':
+          scoreData = intdivScore;
+          indicatorName = 'International Diversity';
+          color = colors.blue;
+          break;
+        case 'financial':
+          scoreData = financialScore;
+          indicatorName = 'Financial Sustainability';
+          color = colors.teal;
+          break;
+      }
+
       const scoreTrace = {
         x: years,
         y: scoreData,
         type: 'bar',
-        name: 'Pontuação',
+        name: 'Pontuação   ',
         marker: {
-          color: colors.lightBlue,
-          opacity: 0.6
+          color: color,
+          opacity: 0.7
         },
-        hovertemplate: '<b>Ano:</b> %{x}<br><b>Pontuação:</b> %{y:,.0f}<extra></extra>',
-        yaxis: 'y2'
+        text: scoreData.map(v => v),//.toLocaleString('pt-BR')),
+        textposition: 'outside',
+        textfont: {
+          size: 10,
+          color: color,
+          family: 'Inter, sans-serif'
+        },
+        hovertemplate: '<b>Ano:</b> %{x}<br><b>Pontuação:</b> %{y:,.0f}<extra></extra>'
       };
 
-      const indicatorLayout = {
-        ...commonLayout,
-        title: indicatorName + ' Ranking',
-        yaxis: {
-          ...commonLayout.yaxis,
-          autorange: 'reversed',
-          title: 'Posição (menor = melhor)',
-          tickformat: 'd',
-          side: 'left',
-          showgrid: false
-        },
-        yaxis2: {
-          fixedrange: true,
-          title: 'Pontuação',
-          overlaying: 'y',
-          side: 'right',
-          tickformat: ',d',
-          separatethousands: true,
-          gridcolor: 'rgba(0,0,0,0.03)',
-          showgrid: true,
-          linecolor: 'rgba(0,0,0,0.1)',
-          linewidth: 1,
-          tickfont: {
-            size: 10,
-            color: colors.blue
-          }
-        },
-        legend: {
-          ...commonLayout.legend,
-          y: -0.3
-        },
-        margin: {
-          ...commonLayout.margin,
-          r: 80
-        }
+      const layout = {
+        ...scoreLayout,
+        title: indicatorName + ' - Pontuação'
       };
 
-      Plotly.newPlot('indicators-chart', [brazilTrace, worldTrace, scoreTrace], indicatorLayout, chartConfig);
+      Plotly.newPlot('indicators-world-score-chart', [scoreTrace], layout, chartConfig);
     }
 
-    // Função para trocar abas dos indicadores
+    // Função para trocar abas dos indicadores (Brasil)
     function changeIndicatorsTab(tab) {
       // Atualizar botões ativos
       const tabBtns = document.querySelectorAll('.indicators-tab');
       tabBtns.forEach(btn => btn.classList.remove('active'));
       event.target.classList.add('active');
 
-      // Criar gráfico do indicador selecionado
-      createIndicatorChart(tab);
+      // Criar gráficos do indicador selecionado
+      createIndicatorBrazilChart(tab);
+      createIndicatorScoreChart(tab);
+    }
+
+    // Função para trocar abas dos indicadores (Mundo)
+    function changeWorldIndicatorsTab(tab) {
+      // Atualizar botões ativos
+      const tabBtns = document.querySelectorAll('.indicators-tab');
+      tabBtns.forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+
+      // Criar gráficos do indicador selecionado
+      createIndicatorWorldChart(tab);
+      createIndicatorWorldScoreChart(tab);
     }
 
     // Inicializar
