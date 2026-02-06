@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PGI/PLAN | Dashboards de Rankings Universitários (UFF)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --primary-blue: rgb(0, 91, 170);
+      --dark-grey: rgb(109, 110, 113);
+      --light-grey: #eaeaea;
+      --white: #ffffff;
+      --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--white);
+      color: var(--dark-grey);
+      line-height: 1.6;
+    }
+
+    /* Header com Azul Institucional */
+    header {
+      background-color: var(--primary-blue);
+      height: 200px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      margin-bottom: 140px;
+    }
+
+    /* Círculo do Logo */
+    .logo-container {
+      position: absolute;
+      bottom: -110px;
+      width: 270px;
+      height: 270px;
+      background-color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+      border: 10px solid var(--white);
+      overflow: hidden;
+    }
+
+    .logo-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: transform 0.3s ease;
+    }
+
+    .logo-container:hover .logo-img {
+      transform: scale(1.05);
+    }
+
+    /* Conteúdo Principal */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .hero {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .hero h1 {
+      color: var(--primary-blue);
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--dark-grey);
+      max-width: 800px;
+      margin: 0 auto 30px;
+    }
+
+    /* Grid de Dashboards */
+    .section-title {
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 0.95rem;
+      color: var(--primary-blue);
+      font-weight: 700;
+      margin-bottom: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .section-title::before,
+    .section-title::after {
+      content: "";
+      height: 1px;
+      width: 60px;
+      background-color: var(--light-grey);
+    }
+
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 25px;
+      margin-bottom: 80px;
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--light-grey);
+      padding: 30px;
+      border-radius: 20px;
+      text-decoration: none;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      border-color: var(--primary-blue);
+      box-shadow: 0 20px 40px rgba(0, 91, 170, 0.1);
+    }
+
+    .card h3 {
+      color: var(--primary-blue);
+      font-size: 1.4rem;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .card p {
+      font-size: 1rem;
+      color: var(--dark-grey);
+      margin-bottom: 25px;
+      opacity: 0.9;
+      flex-grow: 1;
+    }
+
+    .btn-label {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--primary-blue);
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    /* Footer Estilizado */
+    footer {
+      background-color: var(--light-grey);
+      padding: 60px 20px;
+      text-align: center;
+      color: var(--dark-grey);
+      border-top: 1px solid #ddd;
+    }
+
+    footer p {
+      margin-bottom: 8px;
+    }
+
+    footer a {
+      text-decoration: none;
+      color: var(--dark-grey);
+      transition: var(--transition);
+      font-weight: 400;
+    }
+
+    footer a:hover {
+      color: var(--primary-blue);
+    }
+
+    footer b a {
+      color: var(--primary-blue);
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+
+    footer b a:hover {
+      opacity: 0.8;
+    }
+
+    /* Ajustes Mobile */
+    @media (max-width: 768px) {
+      header {
+        height: 160px;
+        margin-bottom: 110px;
+      }
+
+      .logo-container {
+        width: 200px;
+        height: 200px;
+        bottom: -80px;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+    }
+
+    /* Ícones para cada ranking */
+    .icon {
+      font-size: 1.5rem;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo-container">
+      <img src="https://raw.githubusercontent.com/pjfernandes/pgi_plan_page/refs/heads/main/logotipo_boxplot_menor.png"
+        alt="PGI/PLAN UFF" class="logo-img">
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h1>Dashboards de Rankings Universitários</h1>
+      <p>Visualizações interativas para análise do desempenho da Universidade Federal Fluminense (UFF) nos principais
+        rankings acadêmicos internacionais e nacionais. Explore os dados e métricas de cada ranking através dos
+        dashboards abaixo.</p>
+    </section>
+
+    <h2 class="section-title">Rankings Disponíveis</h2>
+
+    <div class="dashboard-grid">
+      <!-- CWTS Leiden Ranking -->
+      <a href="https://pjfernandes.github.io/pgi_ranking_dashboards/cwts.html" class="card" target="_blank">
+        <div>
+          <h3><span class="icon">📊</span> CWTS Leiden</h3>
+          <p>Ranking baseado em indicadores bibliométricos de impacto científico e colaboração internacional.</p>
+        </div>
+        <span class="btn-label">Acessar Dashboard →</span>
+      </a>
+
+      <!-- CWUR World University Rankings -->
+      <a href="https://pjfernandes.github.io/pgi_ranking_dashboards/cwur.html" class="card" target="_blank">
+        <div>
+          <h3><span class="icon">🌍</span> CWUR World</h3>
+          <p>Avaliação global de universidades com base em qualidade de educação, empregabilidade e pesquisa.</p>
+        </div>
+        <span class="btn-label">Acessar Dashboard →</span>
+      </a>
+
+      <!-- Ranking Universitário Folha (RUF) -->
+      <a href="https://pjfernandes.github.io/pgi_ranking_dashboards/folha.html" class="card" target="_blank">
+        <div>
+          <h3><span class="icon">🇧🇷</span> RUF (Folha)</h3>
+          <p>Ranking Universitário da Folha - a mais completa avaliação do ensino superior brasileiro.</p>
+        </div>
+        <span class="btn-label">Acessar Dashboard →</span>
+      </a>
+
+      <!-- UI GreenMetric -->
+      <a href="https://pjfernandes.github.io/pgi_ranking_dashboards/greenmetric.html" class="card" target="_blank">
+        <div>
+          <h3><span class="icon">🌱</span> UI GreenMetric</h3>
+          <p>Ranking de sustentabilidade ambiental de instituições de ensino superior em todo o mundo.</p>
+        </div>
+        <span class="btn-label">Acessar Dashboard →</span>
+      </a>
+
+      <!-- QS World University Rankings -->
+      <a href="https://pjfernandes.github.io/pgi_ranking_dashboards/qs.html" class="card" target="_blank">
+        <div>
+          <h3><span class="icon">🎓</span> QS World</h3>
+          <p>Ranking global baseado em reputação acadêmica, empregabilidade e impacto de pesquisa.</p>
+        </div>
+        <span class="btn-label">Acessar Dashboard →</span>
+      </a>
+
+      <!-- Round University Ranking (RUR) -->
+      <a href="https://pjfernandes.github.io/pgi_ranking_dashboards/rur.html" class="card" target="_blank">
+        <div>
+          <h3><span class="icon">🔄</span> RUR</h3>
+          <p>Round University Ranking - avaliação multidimensional de universidades em nível global.</p>
+        </div>
+        <span class="btn-label">Acessar Dashboard →</span>
+      </a>
+
+      <!-- SCImago Institutions Rankings -->
+      <a href="https://pjfernandes.github.io/pgi_ranking_dashboards/scimago.html" class="card" target="_blank">
+        <div>
+          <h3><span class="icon">📈</span> SCImago</h3>
+          <p>Ranking baseado em indicadores de pesquisa, inovação e impacto social das instituições.</p>
+        </div>
+        <span class="btn-label">Acessar Dashboard →</span>
+      </a>
+
+      <!-- Times Higher Education World University Rankings -->
+      <a href="https://pjfernandes.github.io/pgi_ranking_dashboards/the.html" class="card" target="_blank">
+        <div>
+          <h3><span class="icon">🏛️</span> THE World</h3>
+          <p>Times Higher Education - indicadores de ensino, pesquisa, citações e transferência de conhecimento.</p>
+        </div>
+        <span class="btn-label">Acessar Dashboard →</span>
+      </a>
+
+      <!-- THE Impact Rankings -->
+      <a href="https://pjfernandes.github.io/pgi_ranking_dashboards/the_impact_rankings.html" class="card"
+        target="_blank">
+        <div>
+          <h3><span class="icon">🌎</span> THE Impact</h3>
+          <p>Avalia o compromisso das universidades com os Objetivos de Desenvolvimento Sustentável (ODS) da ONU.</p>
+        </div>
+        <span class="btn-label">Acessar Dashboard →</span>
+      </a>
+
+      <!-- Webometrics -->
+      <a href="https://pjfernandes.github.io/pgi_ranking_dashboards/webometrics.html" class="card" target="_blank">
+        <div>
+          <h3><span class="icon">🌐</span> Webometrics</h3>
+          <p>Ranking que avalia a presença e impacto das universidades na web e sua visibilidade online.</p>
+        </div>
+        <span class="btn-label">Acessar Dashboard →</span>
+      </a>
+    </div>
+  </main>
+
+  <footer>
+    <p><b><a href="https://www.uff.br/" target="_blank">Universidade Federal Fluminense</a></b></p>
+    <p><a href="https://www.uff.br/proplan/uff-em-numeros/" target="_blank">Coordenação de Análise de Dados e
+        Indicadores Gerenciais</a></p>
+    <p>Repositório GitHub: <a href="https://github.com/pjfernandes/pgi_ranking_dashboards"
+        target="_blank">pjfernandes/pgi_ranking_dashboards</a></p>
+  </footer>
+
+</body>
+
+</html>
