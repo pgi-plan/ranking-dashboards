@@ -31,7 +31,7 @@ Cada dashboard pode ser acessado individualmente pelos links listados acima.
 - **HTML5/CSS3** - Estrutura e estilização das páginas
 - **JavaScript** - Interatividade dos dashboards
 - **GitHub Pages** - Hospedagem estática
-- **Bibliotecas de Visualização**:
+- **Bibliotecas**:
   - Bootstrap
   - Plotly
   - Font Awesome
