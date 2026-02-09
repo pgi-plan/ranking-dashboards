@@ -579,7 +579,7 @@
           <div class="chart-tabs mb-3">
             <button class="tab-btn score-tab active" onclick="changeScoreTab('main')">Ensino & Mercado</button>
             <button class="tab-btn score-tab" onclick="changeScoreTab('research')">Pesquisa & Inovação</button>
-            <button class="tab-btn score-tab" onclick="changeScoreTab('international')">Internacionalização</button>
+            <button class="tab-btn score-tab" onclick="changeScoreTab('international')">Internacional</button>
           </div>
           <div id="score-chart"></div>
           <!-- <div class="chart-notes">
@@ -606,7 +606,7 @@
     <div class="footer-note">
       <p class="mb-2">
         <i class="fas fa-database me-1"></i>
-        Dados extraídos do Ranking Universitário Folha (RUF) - 2013 a 2025 (com pausa entre 2020-2022)
+        Dados extraídos do <a href="https://ruf.folha.uol.com.br/2025/" style="text-decoration: none;">Ranking Universitário Folha (RUF) </a>- 2013 a 2025 (com pausa entre 2020-2022)
       </p>
       <p class="mb-0">
         <i class="fa-solid fa-arrow-trend-up me-1"></i>
@@ -801,12 +801,12 @@
         mode: 'lines+markers+text',
         name: 'Posição da UFF',
         line: {
-          color: colors.blue,
+          color: colors.lightBlue,
           width: 4,
           shape: 'spline'
         },
         marker: {
-          color: colors.blue,
+          color: colors.lightBlue,
           size: 10,
           line: {
             color: 'white',
@@ -817,7 +817,7 @@
         textposition: 'bottom center',
         textfont: {
           size: 8,
-          //color: colors.blue,
+          color: colors.blue,
           family: 'Inter, sans-serif',
           weight: 'bold'
         },
