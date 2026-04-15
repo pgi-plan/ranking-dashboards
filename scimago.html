@@ -448,7 +448,10 @@
       latamParticipants: [194, 204, 206, 228, 263, 288, 317, 344, 388, 418, 422, 430, 454],
 
       // Posição Mundial (Overall Rank)
-      worldPosition: [2616, 2830, 2401, 1939, 2438, 2212, 2433, 2520, 2521, 3389, 2489, 2970, 3787]
+      worldPosition: [2616, 2830, 2401, 1939, 2438, 2212, 2433, 2520, 2521, 3389, 2489, 2970, 3787],
+
+      // Número de participantes Mundo
+      worldParticipants: [2829, 2890, 2892, 2966, 3233, 3471, 3897, 4126, 4364, 4533, 4762, 5051, 5491]
     };
 
     // Cores para gráficos
@@ -794,13 +797,63 @@
 
       Plotly.newPlot('latam-participants-chart', [latamPosTrace, latamPartTrace], latamCombinedLayout, chartConfig);
 
-      // 4. Gráfico Posição Mundial - COM VALORES EM BOTTOM CENTER
-      const worldTrace = {
+    //   // 4. Gráfico Posição Mundial - COM VALORES EM BOTTOM CENTER
+    //   const worldTrace = {
+    //     x: data.years,
+    //     y: data.worldPosition,
+    //     type: 'scatter',
+    //     mode: 'lines+markers+text',
+    //     name: 'Posição Mundial   ',
+    //     line: {
+    //       color: colors.purple,
+    //       width: 4,
+    //       shape: 'spline'
+    //     },
+    //     marker: {
+    //       color: colors.purple,
+    //       size: 10,
+    //       line: {
+    //         color: 'white',
+    //         width: 2
+    //       }
+    //     },
+    //     text: data.worldPosition.map(v => v.toString() + ''),
+    //     textposition: 'bottom center',
+    //     textfont: {
+    //       size: 7,
+    //       color: colors.black,
+    //       family: 'Inter, sans-serif'
+    //     },
+    //     hovertemplate: '<b>Ano:</b> %{x}<br><b>Posição Mundial:</b> %{y}º<extra></extra>'
+    //   };
+
+    //   const worldLayout = {
+    //     ...commonLayout,
+    //     title: '',
+    //     yaxis: {
+    //       ...commonLayout.yaxis,
+    //       title: {
+    //         text: 'Posição Mundial',
+    //         font: {
+    //           size: 11,
+    //         }
+    //       },
+    //       tickformat: 'd',
+    //       nticks: 6,
+    //       separatethousands: true
+    //     }
+    //   };
+
+    //   Plotly.newPlot('world-position-chart', [worldTrace], worldLayout, chartConfig);
+    // }
+    // 4. Gráfico Posição Mundial + Participantes no Mundo
+    // Traço da linha (posição) - COM VALORES EM BOTTOM CENTER
+    const worldPosTrace = {
         x: data.years,
         y: data.worldPosition,
         type: 'scatter',
         mode: 'lines+markers+text',
-        name: 'Posição Mundial   ',
+        name: 'Posição Mundial',
         line: {
           color: colors.purple,
           width: 4,
@@ -814,34 +867,97 @@
             width: 2
           }
         },
-        text: data.worldPosition.map(v => v.toString() + ''),
-        textposition: 'bottom center',
+        text: data.worldPosition.map(v => v.toString()),
+        textposition: 'top center',
         textfont: {
-          size: 7,
+          size: 8,
           color: colors.black,
           family: 'Inter, sans-serif'
         },
-        hovertemplate: '<b>Ano:</b> %{x}<br><b>Posição Mundial:</b> %{y}º<extra></extra>'
+        hovertemplate: '<b>Ano:</b> %{x}<br><b>Posição Mundial:</b> %{y}º<extra></extra>',
+        yaxis: 'y1'
       };
 
-      const worldLayout = {
+      // Traço das barras (participantes no mundo) - COM VALORES OUTSIDE
+      const worldPartTrace = {
+        x: data.years,
+        y: data.worldParticipants,
+        type: 'bar',
+        name: 'Instituições no Mundo',
+        text: data.worldParticipants.map(v => v.toString()),
+        textposition: 'inside',
+        textfont: {
+          size: 8,
+          color: colors.green,
+          family: 'Inter, sans-serif'
+        },
+        marker: {
+          color: colors.lightGreen,
+          opacity: 0.5,
+          line: {
+            color: colors.blue,
+            width: 1
+          }
+        },
+        hovertemplate: '<b>Ano:</b> %{x}<br><b>Instituições no Mundo:</b> %{y}<extra></extra>',
+        yaxis: 'y2'
+      };
+
+      // Layout combinado
+      const worldCombinedLayout = {
         ...commonLayout,
         title: '',
         yaxis: {
           ...commonLayout.yaxis,
+          autorange: 'reversed',
           title: {
-            text: 'Posição Mundial',
+            text: 'Posição Mundial (menor = melhor)',
             font: {
-              size: 11,
+              size: 11
             }
           },
           tickformat: 'd',
           nticks: 6,
-          separatethousands: true
+          side: 'left',
+          showgrid: false,
+          tickfont: {
+            color: '#6b7280',
+            size: 10
+          }
+        },
+        yaxis2: {
+          fixedrange: true,
+          title: {
+            text: 'Nº de Instituições no Mundo',
+            font: {
+              size: 11
+            }
+          },
+          overlaying: 'y',
+          side: 'right',
+          tickformat: 'd',
+          nticks: 5,
+          gridcolor: 'rgba(0,0,0,0.03)',
+          showgrid: true,
+          linecolor: 'rgba(0,0,0,0.1)',
+          linewidth: 1,
+          tickfont: {
+            color: '#6b7280',
+            size: 10
+          }
+        },
+        legend: {
+          ...commonLayout.legend,
+          y: -0.3
         }
       };
 
-      Plotly.newPlot('world-position-chart', [worldTrace], worldLayout, chartConfig);
+      Plotly.newPlot(
+        'world-position-chart',
+        [worldPosTrace, worldPartTrace],
+        worldCombinedLayout,
+        chartConfig
+      );
     }
 
     // Inicializar gráficos quando a página carregar
